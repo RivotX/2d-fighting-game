@@ -1,0 +1,24 @@
+.textoJuego {
+  background-color: rgba(0, 0, 0, 0.473);
+  color: white;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  height: 45vh;
+
+  margin-top: 25vh;
+}
+.textJuego {
+  padding: 60px;
+}
+
+.bodyJuego {
+  background: fixed
+    url(https://static.vecteezy.com/system/resources/previews/009/195/350/non_2x/dark-versus-battle-gaming-background-with-silver-texture-vector.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.boton4 {
+  margin-left: 45%;
+}

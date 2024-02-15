@@ -181,7 +181,7 @@ const daga = new Luchador({
     width: 50,
     color: 'red',
     hp: 6,
-    imagenSrc: "../zzJuego/img/dagaQuieto2.png",
+    imagenSrc: "./img/dagaQuieto2.png",
     framesMax: 7,
     scale: 3.2,
     offset: {
@@ -190,15 +190,15 @@ const daga = new Luchador({
     },
     sprites: {
         quieto: {
-            imagenSrc: "../zzJuego/img/dagaQuieto2.png",
+            imagenSrc: "./img/dagaQuieto2.png",
             framesMax: 7,
         },
         quietoInv: {
-            imagenSrc: "../zzJuego/img/dagaQuietoIzq.png",
+            imagenSrc: "./img/dagaQuietoIzq.png",
             framesMax: 10,
         },
         ataque1: {
-            imagenSrc: "../zzJuego/img/dagaAtaque1.png",
+            imagenSrc: "./img/dagaAtaque1.png",
             framesMax: 7,
         },
     }
@@ -218,7 +218,7 @@ const mago = new Luchador({
     width: 50,
     color: 'blue',
     hp: 2,
-    imagenSrc: "../zzJuego/img/MagoQuietoIzq.png",
+    imagenSrc: "./img/MagoQuietoIzq.png",
     framesMax: 8,
     scale: 3.2,
     offset: {
@@ -227,11 +227,11 @@ const mago = new Luchador({
     },
     sprites: {
         quieto: {
-            imagenSrc: "../zzJuego/img/MagoQuietoIzq.png",
+            imagenSrc: "./img/MagoQuietoIzq.png",
             framesMax: 10,
         },
         quietoInv: {
-            imagenSrc: "../zzJuego/img/MagoQuieto.png",
+            imagenSrc: "./img/MagoQuieto.png",
             framesMax: 10,
         },
     }
@@ -250,7 +250,7 @@ const flecha = new Flecha({
     height: 10,
     width: 30,
     color: 'yellow',
-    imagenSrc: "../zzJuego/img/fireball.png",
+    imagenSrc: "./img/fireball.png",
 
 });
 flecha.pintar();
@@ -261,7 +261,7 @@ const fondo = new Sprite({
         x: 0,
         y: 0,
     },
-    imagenSrc: "../zzJuego/img/fondo.gif"
+    imagenSrc: "./img/fondo.gif"
 });
 
 const dagaVidas = new Sprite({
@@ -269,7 +269,7 @@ const dagaVidas = new Sprite({
         x: 50,
         y: 20,
     },
-    imagenSrc: "../zzJuego/img/dagaVidas.png",
+    imagenSrc: "./img/dagaVidas.png",
 });
 
 const magoVidas = new Sprite({
@@ -277,7 +277,7 @@ const magoVidas = new Sprite({
         x: 1500,
         y: 20,
     },
-    imagenSrc: "../zzJuego/img/mago2vidas.png",
+    imagenSrc: "./img/mago2vidas.png",
 });
 
 
@@ -363,7 +363,7 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
         mago.hp -= 1;
 
         if (mago.hp == 1) {
-            magoVidas.imagen.src = "../zzJuego/img/mago1vida.png";
+            magoVidas.imagen.src = "./img/mago1vida.png";
             if (daga.position.x > canvas.width/2) {
                 mago.position.x = 0;
                 mago.position.y = 0;
@@ -399,7 +399,7 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
             i--;
 
             if (daga.hp == 3) {
-                dagaVidas.imagen.src = "../zzJuego/img/daga1vida.png";
+                dagaVidas.imagen.src = "./img/daga1vida.png";
                 if (mago.position.x > canvas.width/2) {
                     daga.position.x = 0;
                     daga.position.y = 0;
@@ -530,7 +530,7 @@ window.addEventListener('keydown', function (event) {
                         height: 40,
                         width: 40,
                         color: 'yellow',
-                        imagenSrc: "../zzJuego/img/fireball.png",
+                        imagenSrc: "./img/fireball.png",
 
                     });
                     nuevaFlecha.disparar(mago.position.x + mago.width, mago.position.y + mago.height / 2);
@@ -556,7 +556,7 @@ window.addEventListener('keydown', function (event) {
                         height: 40,
                         width: 40,
                         color: 'yellow',
-                        imagenSrc: "../zzJuego/img/fireball.png",
+                        imagenSrc: "./img/fireball.png",
 
                     });
                     nuevaFlecha.disparar(mago.position.x + mago.width, mago.position.y + mago.height / 2);
