@@ -374,7 +374,7 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
         }
 
         if (mago.hp <= 0) {
-            window.location.href = '../zzJuego/finales/DagaGana.html';
+            window.location.href = 'finales/DagaGana.html';
 
         }
         console.log(mago.hp);
@@ -409,7 +409,7 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
                 }
             }
             if (daga.hp <= 0) {
-                window.location.href = '../zzJuego/finales/GanaMago.html';
+                window.location.href = 'finales/GanaMago.html';
             }
         }
     }
@@ -650,15 +650,11 @@ function cambiarPosiciones(jugador1, jugador2) {
 setTimeout(function () {
     cambiarPosiciones(daga, mago);
     console.log('cambio');
-}, (Math.floor(Math.random() * 7000) + 1)
-);
-
-
-setTimeout(function () {
-    cambiarPosiciones(daga, mago);
-    console.log('cambio');
 }, (Math.floor(Math.random() * 14000) + 1)
 );
+
+
+
 
 
 animate();
