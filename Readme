@@ -1,8 +1,51 @@
-This is a simple game I made as a class assignment.
+# Simple Game
 
-Modify your browser zoom to adjust the game to your computer screen
+<p align="center">
+  <img src="https://via.placeholder.com/600x200" alt="Game Screenshot" style="border-radius: 8px;"/>
+</p>
 
-controls: Mage: arrows, L(attack), K(push away).      Rogue: ASDW, J(attack)
+<p align="center">
+  <em>This is a simple game I made as a class assignment.</em>
+</p>
 
-To play just open "index.html"
+<h2>Instructions</h2>
+
+<p><strong>To play:</strong></p>
+<ol>
+  <li>Open <code>index.html</code>.</li>
+</ol>
+
+<p><strong>Adjust the game to your computer screen:</strong></p>
+<ul>
+  <li>Modify your browser zoom.</li>
+</ul>
+
+<h2>Controls</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mage</th>
+      <th>Rogue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><strong>Movement:</strong> Arrow keys</li>
+          <li><strong>Attack:</strong> <code>L</code></li>
+          <li><strong>Push away:</strong> <code>K</code></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Movement:</strong> <code>W</code>, <code>A</code>, <code>S</code>, <code>D</code></li>
+          <li><strong>Attack:</strong> <code>J</code></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
