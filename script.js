@@ -667,15 +667,3 @@ setTimeout(function () {
 );
 
 animate();
-
-function DagaGanaFinal() {
-    window.location.href = '../juego.html';
-}
-function MagoGanaFinal() {
-    window.location.href = '../juego.html';
-}
-
-function explicacion() {
-    window.location.href = '../zzJuego/juego.html';
-
-}
