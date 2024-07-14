@@ -8,13 +8,13 @@ canvas.height = 800;
 c.fillRect(0, 0, canvas.width, canvas.height); //fillRect(x: number, y: number, w: number, h: number): pinta
 
 
-// ------------- lo weno ------------//
+// ------------- CLASSES ------------//
 
-const gravedad = 0.99999; // literalmente 1px de gravedad para añadirla a la velocidad.y
+const gravedad = 0.99999;
 
 //clase Sprite 
 class Sprite {
-    constructor({ position, imagenSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 } }) { // paso parametros con objetos en vez de con muchas propiedades distintas, mas sencillo
+    constructor({ position, imagenSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 } }) {
         this.position = position;
         this.imagen = new Image();
         this.imagen.src = imagenSrc;
@@ -126,16 +126,16 @@ class Luchador extends Sprite {
 
 }
 
-//clase flecha
-class Flecha {
+//clase fireball
+class Fireball {
     constructor({ position, velocidad, height, width, color, imagenSrc }) {
         this.position = position;
         this.velocidad = velocidad;
         this.width = width;
         this.height = height;
         this.color = color;
-        this.isAttacking = false; // Indica si la flecha está en vuelo
-        this.flechaDisparada = false;
+        this.isAttacking = false; // Indica si la fireball está en vuelo
+        this.fireballDisparada = false;
         this.imagen = new Image();
         this.imagen.src = imagenSrc;
     }
@@ -157,14 +157,14 @@ class Flecha {
     }
 
     disparar(x, y) {
-        // Inicia el disparo de la flecha desde la posición x, y
+        // Inicia el disparo de la fireball desde la posición x, y
         this.position.x = x;
         this.position.y = y;
         this.isAttacking = true;
     }
-    resetFlechaDisparada() {
-        this.flechaDisparada = false;
-        console.log("flechaDisparada = ", this.flechaDisparada);
+    resetFireballDisparada() {
+        this.fireballDisparada = false;
+        console.log("fireballDisparada = ", this.fireballDisparada);
     }
 }
 
@@ -238,7 +238,7 @@ const mago = new Luchador({
 });
 mago.pintar();
 
-const flecha = new Flecha({
+const fireball = new Fireball({
     position: {
         x: mago.position.x,
         y: mago.position.y + mago.height,
@@ -253,8 +253,8 @@ const flecha = new Flecha({
     imagenSrc: "./img/fireball.png",
 
 });
-flecha.pintar();
-const flechas = [];
+fireball.pintar();
+const fireballs = [];
 
 const fondo = new Sprite({
     position: {
@@ -282,7 +282,7 @@ const magoVidas = new Sprite({
 
 
 var contadorr = 70;
-function animate() { //esta funcion se esta llamando a si misma, es infinita hasta que acabe el juego (bastantes fps)
+function animate() { //esta funcion se esta llamando a si misma, es infinita hasta que acabe el juego
     window.requestAnimationFrame(animate);
     c.fillStyle = 'black';
     c.fillRect(0, 0, canvas.width, canvas.height); //pinta el fondo negro
@@ -342,13 +342,13 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
     else if (mago.velocidad.y > 0 && keys.ArrowDown.presionada == true && mago.UltimaTeclaVertical === "ArrowDown") {
         mago.velocidad.y = mago.velocidad.y = 22;
     }
-    // UPDATE DE LAS FLECHAS
-    // Actualiza y muestra todas las flechas
-    for (let i = 0; i < flechas.length; i++) {
-        flechas[i].update();
-        if (flechas[i].position.x < 0) {
-            // Elimina las flechas que han salido del lienzo
-            flechas.splice(i, 1);
+    // UPDATE DE LAS Fireballs
+    // Actualiza y muestra todas las fireballs
+    for (let i = 0; i < fireballs.length; i++) {
+        fireballs[i].update();
+        if (fireballs[i].position.x < 0) {
+            // Elimina las fireballs que han salido del lienzo
+            fireballs.splice(i, 1);
             i--;
         }
     }
@@ -364,10 +364,10 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
 
         if (mago.hp == 1) {
             magoVidas.imagen.src = "./img/mago1vida.png";
-            if (daga.position.x > canvas.width/2) {
+            if (daga.position.x > canvas.width / 2) {
                 mago.position.x = 0;
                 mago.position.y = 0;
-            }else{
+            } else {
                 mago.position.x = canvas.width - mago.width;
                 mago.position.y = 0;
             }
@@ -382,28 +382,28 @@ function animate() { //esta funcion se esta llamando a si misma, es infinita has
 
 
 
-    //colision flechas
-    for (let i = 0; i < flechas.length; i++) {
-        const flecha = flechas[i];
+    //colision fireball
+    for (let i = 0; i < fireballs.length; i++) {
+        const fireball = fireballs[i];
 
         if (
-            flecha.position.x + flecha.width >= daga.position.x &&
-            flecha.position.x <= daga.position.x + daga.width &&
-            flecha.position.y + flecha.height >= daga.position.y &&
-            flecha.position.y <= daga.position.y + daga.height &&
-            flecha.isAttacking
+            fireball.position.x + fireball.width >= daga.position.x &&
+            fireball.position.x <= daga.position.x + daga.width &&
+            fireball.position.y + fireball.height >= daga.position.y &&
+            fireball.position.y <= daga.position.y + daga.height &&
+            fireball.isAttacking
         ) {
             daga.hp -= 1;
             console.log("daga hp = ", daga.hp);
-            flechas.splice(i, 1); // Elimina la flecha al impactar
+            fireballs.splice(i, 1); // Elimina la fireball al impactar
             i--;
 
             if (daga.hp == 3) {
                 dagaVidas.imagen.src = "./img/daga1vida.png";
-                if (mago.position.x > canvas.width/2) {
+                if (mago.position.x > canvas.width / 2) {
                     daga.position.x = 0;
                     daga.position.y = 0;
-                }else{
+                } else {
                     daga.position.x = canvas.width - daga.width;
                     daga.position.y = 0;
                 }
@@ -467,7 +467,7 @@ const keys = {
 }
 
 
-let ultimaVezDisparoFlecha = 0;
+let ultimaVezDisparoFireball = 0;
 let ultimoataque = 0;
 
 var contador = 3;
@@ -475,22 +475,28 @@ var contador = 3;
 window.addEventListener('keydown', function (event) {
     switch (event.key) {
         case "d":
+        case "D":
             keys.d.presionada = true;
             daga.UltimaTeclaHorizontal = "d";
             break;
         case "a":
+        case "A":
             keys.a.presionada = true;
             daga.UltimaTeclaHorizontal = "a";
             break;
         case "w":
+        case "W":
+
             keys.w.presionada = true;
             daga.UltimaTeclaVertical = "w";
             break;
         case "s":
+        case "S":
             keys.s.presionada = true;
             daga.UltimaTeclaVertical = "s";
             break;
         case "g":
+        case "G":
             var tiempoActual2 = Date.now(); // Obtiene el tiempo actual
             if (tiempoActual2 - ultimoataque >= 800) {
                 ultimoataque = tiempoActual2;  // Actualiza el tiempo del último disparo
@@ -510,15 +516,16 @@ window.addEventListener('keydown', function (event) {
             break;
 
         case "l":
+        case "L":
             var tiempoActual = Date.now(); // Obtiene el tiempo actual
             if (mago.position.x >= daga.position.x) {
-                if (tiempoActual - ultimaVezDisparoFlecha >= 700) {
-                    ultimaVezDisparoFlecha = tiempoActual;  // Actualiza el tiempo del último disparo
+                if (tiempoActual - ultimaVezDisparoFireball >= 700) {
+                    ultimaVezDisparoFireball = tiempoActual;  // Actualiza el tiempo del último disparo
                     console.log("disparo");
                     keys.l.presionada = true;
-                    flecha.flechaDisparada = true; // Establece flechaDisparada en true
+                    fireball.fireballDisparada = true; // Establece fireballDisparada en true
                     console.log('l');
-                    const nuevaFlecha = new Flecha({
+                    const nuevaFireball = new Fireball({
                         position: {
                             x: mago.position.x + mago.width,
                             y: mago.position.y + mago.height / 2,
@@ -533,18 +540,18 @@ window.addEventListener('keydown', function (event) {
                         imagenSrc: "./img/fireball.png",
 
                     });
-                    nuevaFlecha.disparar(mago.position.x + mago.width, mago.position.y + mago.height / 2);
-                    flechas.push(nuevaFlecha);
+                    nuevaFireball.disparar(mago.position.x + mago.width, mago.position.y + mago.height / 2);
+                    fireballs.push(nuevaFireball);
 
                 }
             } else {
-                if (tiempoActual - ultimaVezDisparoFlecha >= 800) {
-                    ultimaVezDisparoFlecha = tiempoActual;  // Actualiza el tiempo del último disparo
+                if (tiempoActual - ultimaVezDisparoFireball >= 800) {
+                    ultimaVezDisparoFireball = tiempoActual;  // Actualiza el tiempo del último disparo
                     console.log("disparo");
                     keys.l.presionada = true;
-                    flecha.flechaDisparada = true; // Establece flechaDisparada en true
+                    fireball.fireballDisparada = true; // Establece fireballDisparada en true
                     console.log('l');
-                    const nuevaFlecha = new Flecha({
+                    const nuevaFireball = new Fireball({
                         position: {
                             x: mago.position.x + mago.width,
                             y: mago.position.y + mago.height / 2,
@@ -559,8 +566,8 @@ window.addEventListener('keydown', function (event) {
                         imagenSrc: "./img/fireball.png",
 
                     });
-                    nuevaFlecha.disparar(mago.position.x + mago.width, mago.position.y + mago.height / 2);
-                    flechas.push(nuevaFlecha);
+                    nuevaFireball.disparar(mago.position.x + mago.width, mago.position.y + mago.height / 2);
+                    fireballs.push(nuevaFireball);
 
                 }
             }
@@ -584,6 +591,7 @@ window.addEventListener('keydown', function (event) {
             break;
 
         case "k":
+        case "K":
             if (contador > 1) {
                 if (!keys.k.presionada) {
                     keys.k.presionada = true;
@@ -597,21 +605,27 @@ window.addEventListener('keydown', function (event) {
             }
     }
 })
+
 window.addEventListener('keyup', function (event) {
     switch (event.key) {
         case "d":
+        case "D":
             keys.d.presionada = false;
             break;
         case "a":
+        case "A":
             keys.a.presionada = false;
             break;
         case "w":
+        case "W":
             keys.w.presionada = false;
             break;
         case "s":
+        case "S":
             keys.s.presionada = false;
             break;
         case "l":
+        case "L":
             keys.l.presionada = false;
             break;
         case "ArrowRight":
@@ -627,14 +641,15 @@ window.addEventListener('keyup', function (event) {
             keys.ArrowDown.presionada = false;
             break;
         case "k":
+        case "K":
             keys.k.presionada = false;
             break;
         case "g":
+        case "G":
             keys.g.presionada = false;
             break;
     }
 })
-
 
 function cambiarPosiciones(jugador1, jugador2) {
     var tempX = daga.position.x;
@@ -645,17 +660,11 @@ function cambiarPosiciones(jugador1, jugador2) {
     mago.position.y = tempY;
 }
 
-
-
 setTimeout(function () {
     cambiarPosiciones(daga, mago);
     console.log('cambio');
 }, (Math.floor(Math.random() * 14000) + 1)
 );
-
-
-
-
 
 animate();
 

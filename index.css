@@ -1,24 +1,73 @@
-.textoJuego {
-  background-color: rgba(0, 0, 0, 0.473);
-  color: white;
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  height: 45vh;
-
-  margin-top: 25vh;
-}
-.textJuego {
-  padding: 60px;
-}
-
-.bodyJuego {
-  background: fixed
-    url(https://static.vecteezy.com/system/resources/previews/009/195/350/non_2x/dark-versus-battle-gaming-background-with-silver-texture-vector.jpg);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #333;
+  background: fixed url(https://static.vecteezy.com/system/resources/previews/009/195/350/non_2x/dark-versus-battle-gaming-background-with-silver-texture-vector.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 10%;
 }
 
-.boton4 {
-  margin-left: 45%;
+.containerJuego {
+  padding: 2rem;
+  max-width: 800px;
+  background-color: #212529;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.textoJuego p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.textoJuego ul {
+  padding-left: 20px;
+}
+
+.textoJuego ul li {
+  margin-bottom: 10px;
+}
+
+.dark-table {
+  background-color: #000;
+  color: #fff;
+}
+
+.dark-table thead th {
+  border-color: #fff;
+}
+
+.dark-table tbody td {
+  border-color: #666;
+}
+
+.bodyRogue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 10%;
+  background-image: url('./img/DagaGana.jpg');
+  overflow: hidden
+}
+.bodyMage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 10%;
+  background-image: url('./img/magoGana.jpg');
+  overflow: hidden
 }
