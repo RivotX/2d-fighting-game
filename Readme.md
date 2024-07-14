@@ -12,6 +12,7 @@
 
 <p><strong>To play:</strong></p>
 <ol>
+  <li>Clone the repository.</li>
   <li>Open <code>index.html</code>.</li>
 </ol>
 
