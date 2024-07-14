@@ -1,7 +1,7 @@
 # Simple Game
 
 <p align="center">
-  <img src="https://via.placeholder.com/600x200" alt="Game Screenshot" style="border-radius: 8px;"/>
+  <img src="./img/ReadmeIMG.png" alt="Game Screenshot" style="border-radius: 8px;"/>
 </p>
 
 <p align="center">
