@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <em>This is a simple game I made as a class assignment.</em>
+  <em>I created this simple fighting game with vanilla JavaScript for a class assignment.</em>
 </p>
 
 <h2>Instructions</h2>
