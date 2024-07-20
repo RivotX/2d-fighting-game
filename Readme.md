@@ -1,5 +1,3 @@
-# Simple Game
-
 <p align="center">
   <img src="./img/ReadmeIMG.png" alt="Game Screenshot" style="border-radius: 8px;"/>
 </p>
